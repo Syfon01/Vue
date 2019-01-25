@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First Vue</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">    
+</head>
+<body>
+    <div id="app" class="container py-5" >
+        <navbar class="navbar navbar-expand-lg navbar-light bg-light"></navbar>
+       <h1>{{message}}</h1> 
+       <h2 v-if="hasMessage">I have a welcome message</h2>
+       <h3 :title="vue">{{comment}}</h3>
+       <button @click="logMessage" class="btn">Click Me and see the difference</button>
+       <button @click="toggleMessage" class="btn">Toggle message</button>
+       <hr>
+       <form action="">
+           <!-- <p><label for="">Customer name:<input></label></p> -->
+             <label for="">Type here and notice the changes:<input type="text" v-model="message" class="form-control"></label> 
+            <input type="checkbox" v-model="hasMessage">   
+        </form>
+        <hr>
+        <div class="select ">
+            <select v-model.trim="selected">
+                <option disabled value>What's your best Color</option>
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Yellow">Yellow</option>
+            </select>
+            <span> Selected:{{ selected }}</span>
+        </div>
+        <hr>
+        <ul>
+            <li v-for="message in messages" :key="message.id">
+                {{message}}
+            </li>
+        </ul>
+        <hr>
+        <div class="counter-section">
+            <counter></counter>
+            <br>
+            <counter></counter>
+            <br>
+            <counter></counter>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="app.js"></script>
+</html>
